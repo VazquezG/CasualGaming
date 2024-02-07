@@ -10,10 +10,10 @@ public class PoolScript : MonoBehaviour
     [SerializeField]
     GameObject preFabPool;
     [SerializeField]
-    int poolCount = 0;
+    int poolCount;
     void Start()
     {
-        
+        creaObjetos(poolCount);
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class PoolScript : MonoBehaviour
 
     public GameObject Request()
     {
-        GameObject temp = new GameObject();
+        GameObject temp;
 
         if (poolsAvailable.Count > 0)
         {
