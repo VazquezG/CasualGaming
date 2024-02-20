@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58fcb85560c56824c85607e4bd85ffdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 3
+  timeLimit: 1
   timeCount: 0
   vel: 15
   tuvos: {fileID: 6436959390816509603, guid: edcb7c83d864e244ebee1603d932c128, type: 3}

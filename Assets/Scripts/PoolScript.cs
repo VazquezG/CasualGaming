@@ -15,20 +15,16 @@ public class PoolScript : MonoBehaviour
     {
         creaObjetos(poolCount);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     private void creaObjetos(int poolCount)
     {
         GameObject temp = new GameObject();
         for(int x = 0; x< poolCount; x++)
         {
-            temp = Instantiate(preFabPool, Vector3.zero, Quaternion.identity);
+            temp = Instantiate(preFabPool, transform.position, Quaternion.identity);
             temp.SetActive(false);
+            temp.transform.parent = transform;
             poolsAvailable.Add(temp);
 
         }
@@ -49,5 +45,12 @@ public class PoolScript : MonoBehaviour
             creaObjetos(1);
             return Request(); 
         }
+    }
+
+    public void Disapear(GameObject bull)
+    {
+        bull.SetActive(false);
+        poolsActive.Remove(bull);
+        poolsAvailable.Add(bull);
     }
 }
