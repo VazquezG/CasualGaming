@@ -388,7 +388,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 584318360}
         m_TargetAssemblyTypeName: CambioEscena, Assembly-CSharp
-        m_MethodName: jugar
+        m_MethodName: Jugar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

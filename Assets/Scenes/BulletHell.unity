@@ -1179,6 +1179,52 @@ Transform:
   m_Father: {fileID: 1078925414}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &547500540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 547500541}
+  - component: {fileID: 547500542}
+  m_Layer: 0
+  m_Name: PoolsOlashuTecho
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &547500541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547500540}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 682691596}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &547500542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547500540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6ed3a2ad7de814294b63e4f23869b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preFabPool: {fileID: 4911483493638066640, guid: ab9b2bd9589c2c64dbf7f0ee2c6f2ee0, type: 3}
+  poolCount: 10
 --- !u!1 &556197799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,6 +1525,8 @@ Transform:
   - {fileID: 762386981}
   - {fileID: 759934661}
   - {fileID: 1894907471}
+  - {fileID: 1250650712}
+  - {fileID: 547500541}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2160,6 +2208,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 882958313}
+  - component: {fileID: 882958314}
   m_Layer: 0
   m_Name: Spawners
   m_TagString: Untagged
@@ -2186,6 +2235,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &882958314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882958312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9ad50a37642a5c469b72c46ed85bff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puntosCheck: {fileID: 1586274843}
+  spawns:
+  - {fileID: 1127179917}
+  - {fileID: 1451306078}
+  - {fileID: 1078925415}
+  - {fileID: 1904856036}
 --- !u!1 &906293457
 GameObject:
   m_ObjectHideFlags: 0
@@ -2607,7 +2674,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1078925413}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -6.94, z: 0}
+  m_LocalPosition: {x: 0, y: -7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2655,10 +2722,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tcambia: 0
   tLimit: 0
-  shu: 0
-  timeLimit: 2
+  puntosCheck: {fileID: 1586274843}
   poolShurikens: {fileID: 593421133}
   poolFlecha: {fileID: 1894907472}
+  poolOla: {fileID: 547500542}
   posisiones:
   - {fileID: 794045487}
   - {fileID: 744433825}
@@ -2774,7 +2841,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127179915}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.99, y: 0, z: 0}
+  m_LocalPosition: {x: 10, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2811,10 +2878,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tcambia: 0
   tLimit: 0
-  shu: 0
-  timeLimit: 1
+  puntosCheck: {fileID: 1586274843}
   poolShurikens: {fileID: 593421133}
   poolFlecha: {fileID: 64128830}
+  poolOla: {fileID: 1250650713}
   posisiones:
   - {fileID: 1325696712}
   - {fileID: 967475513}
@@ -2863,6 +2930,52 @@ Transform:
   m_Father: {fileID: 1904856035}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1250650711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1250650712}
+  - component: {fileID: 1250650713}
+  m_Layer: 0
+  m_Name: PoolsOlaShuLados
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1250650712
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250650711}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 682691596}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1250650713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250650711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6ed3a2ad7de814294b63e4f23869b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preFabPool: {fileID: 3674247572180399706, guid: 415806a163dc22e47952d90c99f86b37, type: 3}
+  poolCount: 10
 --- !u!1 &1258437104
 GameObject:
   m_ObjectHideFlags: 0
@@ -3167,7 +3280,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451306076}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.33, y: 0, z: 0}
+  m_LocalPosition: {x: -10, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3204,10 +3317,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tcambia: 0
   tLimit: 0.2
-  shu: 1
-  timeLimit: 2
+  puntosCheck: {fileID: 1586274843}
   poolShurikens: {fileID: 593421133}
   poolFlecha: {fileID: 762386982}
+  poolOla: {fileID: 1250650713}
   posisiones:
   - {fileID: 749437539}
   - {fileID: 92558299}
@@ -4051,7 +4164,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904856034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.09, z: 0}
+  m_LocalPosition: {x: 0, y: 7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4099,10 +4212,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tcambia: 0
   tLimit: 0
-  shu: 0
-  timeLimit: 1.5
+  puntosCheck: {fileID: 1586274843}
   poolShurikens: {fileID: 593421133}
   poolFlecha: {fileID: 759934662}
+  poolOla: {fileID: 547500542}
   posisiones:
   - {fileID: 1446986618}
   - {fileID: 873869954}

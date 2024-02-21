@@ -198,3 +198,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vel: 5
+  solo: 1

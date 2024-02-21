@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class CambioEscena : MonoBehaviour
 {
-    public void jugar()
+    public void Jugar()
     {
+        Debug.Log("picado");
         SceneManager.LoadScene(1);
     }
 }
