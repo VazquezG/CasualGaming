@@ -20,6 +20,7 @@ public class ManagerBullets1 : MonoBehaviour
     void Update()
     {
         timeChek += Time.deltaTime;
+        Debug.Log(timeChek);
         if(timeChek > timeLimit)
         {
             Accion();
