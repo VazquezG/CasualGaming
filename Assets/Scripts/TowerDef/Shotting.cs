@@ -23,7 +23,7 @@ public class Shotting : MonoBehaviour
         fuego.SetActive(false);
         actions = new PlayerActions();
         actions.Enable();
-        actions.move.click.performed += Shoot ;
+        actions.move.click.performed += Shoot;
 
     }
 

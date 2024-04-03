@@ -7,7 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 public class Movimiento : MonoBehaviour
 {
    
-    Vector3 target, desireVel, targetPrueva;
+    Vector3 target, desireVel;
     [SerializeField]
     float maxVel, slowDistance, slowingForce, slowing, distance;
     void Start()
@@ -28,6 +28,7 @@ public class Movimiento : MonoBehaviour
         else
         {
             GetComponentInParent<PoolScript>().Disapear(gameObject);
+            transform.position = new Vector3(10,10,0); 
         }
     }
 
@@ -45,4 +46,22 @@ public class Movimiento : MonoBehaviour
         }
         transform.position += desireVel;
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if(collision.tag == "Player")
+    //    {
+    //        Debug.Log("algo");
+    //    }
+    //}
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if(collision.transform.tag == "Player")
+    //    {
+    //        Debug.Log("algo Coll");
+    //    }
+    //}
+
+
 }
