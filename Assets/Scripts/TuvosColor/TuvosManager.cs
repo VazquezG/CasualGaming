@@ -53,7 +53,11 @@ public class TuvosManager : MonoBehaviour
             else
             {
                 selected = false;
-                hit.collider.GetComponent<Tubo>().ponerColor(hold.GetComponent<Tubo>().darColorNumeros(), hold.GetComponent<Tubo>().darColorObjeto());
+                if (!hit.collider.GetComponent<Tubo>().lleno())
+                {
+                    hit.collider.GetComponent<Tubo>().ponerColor(hold.GetComponent<Tubo>().darColorNumeros(), hold.GetComponent<Tubo>().darColorObjeto());
+
+                }
                 hold.GetComponent <Tubo>().Soltar();
                 hold = null;
                 Victoria();
@@ -82,8 +86,7 @@ public class TuvosManager : MonoBehaviour
                     
                     if(ama != 4)
                     {
-                        print(tubos.Count);
-                        print(indexTubos);
+                        
                         colorhold = Amarillo.Request();
                         colorhold.SetActive(true);
                         tubos[indexTubos].GetComponent<Tubo>().ponerColor(ran, colorhold);
@@ -103,7 +106,6 @@ public class TuvosManager : MonoBehaviour
                         tubos[indexTubos].GetComponent<Tubo>().ponerColor(ran, colorhold); 
                         azul++;
                         totalColores++;
-                        print("azul" + azul);
                         allColors.Add(colorhold);
                     }
 
@@ -118,7 +120,6 @@ public class TuvosManager : MonoBehaviour
                         tubos[indexTubos].GetComponent<Tubo>().ponerColor(ran, colorhold); 
                         gris++;
                         totalColores++;
-                        print("Gris" + gris);
                         allColors.Add(colorhold);
                     }
 
@@ -133,7 +134,6 @@ public class TuvosManager : MonoBehaviour
                         tubos[indexTubos].GetComponent<Tubo>().ponerColor(ran, colorhold);
                         nara++;
                         totalColores++;
-                        print("naranja" + nara);
                         allColors.Add(colorhold);
                     }
 
@@ -148,7 +148,6 @@ public class TuvosManager : MonoBehaviour
                         tubos[indexTubos].GetComponent<Tubo>().ponerColor(ran, colorhold); 
                         rojo++;
                         totalColores++;
-                        print("rojo" + rojo) ;
                         allColors.Add(colorhold);
                     }
 
@@ -163,7 +162,6 @@ public class TuvosManager : MonoBehaviour
                         tubos[indexTubos].GetComponent<Tubo>().ponerColor(ran, colorhold); 
                         ver++;
                         totalColores++;
-                        print("verde" + ver );
                         allColors.Add(colorhold);
                     }
 

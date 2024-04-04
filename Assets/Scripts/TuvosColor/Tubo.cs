@@ -131,4 +131,14 @@ public class Tubo : MonoBehaviour
         }
     }
 
+    public bool lleno()
+    {
+        print(Indices[0]);
+        if (Indices[0] != 0)
+        {
+            return true;
+        }
+        return false;
+    }
+
 }
