@@ -13,8 +13,9 @@ public class TuvosManager : MonoBehaviour
     public PoolScript Amarillo, Azul, Gris, Naranja, Rojo, Verde; 
     public List<GameObject> tubos = new List<GameObject>();
     PlayerActions action;
+    public Colormenu Menu;
     bool selected;
-    GameObject hold;
+    GameObject hold, colorhold;
     int indexTubos, totalColores;
     void Start()
     {
@@ -23,11 +24,6 @@ public class TuvosManager : MonoBehaviour
         action.Enable();
         action.move.click.performed += sleccionTubo;
         //llenarTubos();
-    }
-
-    void Update()
-    {
-        
     }
 
     private void sleccionTubo(InputAction.CallbackContext click)
@@ -46,7 +42,7 @@ public class TuvosManager : MonoBehaviour
 
         if(hit.collider.tag == "Player")
         {
-            print(hold);
+            //print(hold);
             if (!selected)
             {
                 selected = true;
@@ -60,36 +56,40 @@ public class TuvosManager : MonoBehaviour
                 hit.collider.GetComponent<Tubo>().ponerColor(hold.GetComponent<Tubo>().darColorNumeros(), hold.GetComponent<Tubo>().darColorObjeto());
                 hold.GetComponent <Tubo>().Soltar();
                 hold = null;
-                
+                Victoria();
             }
         }
 
         
     }
+  
 
-    private void llenarTubos()
+    public void llenarTubos()
     {
         int ran, ama = 0, azul = 0, gris = 0, nara = 0, rojo = 0, ver = 0;
-        print("entro");
+        //indexTubos = 0;
+        //totalColores= 0;
         while(ama != 4 || azul != 4 || gris != 4 || nara != 4 || rojo != 4 || ver != 4)
         {
-            print(totalColores);
             if (totalColores % 4 == 0 && totalColores != 0 && indexTubos < tubos.Count)
             {
-                print("resando");
                 indexTubos++;
             }
-            ran = Random.Range(1, 7);
+            ran = Random.Range(1,7);
             switch (ran)
             {
                 case 1:
                     
                     if(ama != 4)
                     {
-                        tubos[indexTubos].GetComponent<Tubo>().ponerColor(ran, Amarillo.Request());
+                        print(tubos.Count);
+                        print(indexTubos);
+                        colorhold = Amarillo.Request();
+                        colorhold.SetActive(true);
+                        tubos[indexTubos].GetComponent<Tubo>().ponerColor(ran, colorhold);
                         ama++;
                         totalColores++;
-                        print("amarillo " + ama);
+                        allColors.Add(colorhold);
                     }
 
                     break;
@@ -98,10 +98,13 @@ public class TuvosManager : MonoBehaviour
 
                     if (azul != 4)
                     {
-                        tubos[indexTubos].GetComponent<Tubo>().ponerColor(ran, Azul.Request());
+                        colorhold = Azul.Request();
+                        colorhold.SetActive(true);
+                        tubos[indexTubos].GetComponent<Tubo>().ponerColor(ran, colorhold); 
                         azul++;
                         totalColores++;
                         print("azul" + azul);
+                        allColors.Add(colorhold);
                     }
 
                     break;
@@ -110,10 +113,13 @@ public class TuvosManager : MonoBehaviour
 
                     if(gris!= 4)
                     {
-                        tubos[indexTubos].GetComponent<Tubo>().ponerColor(ran, Gris.Request());
+                        colorhold = Gris.Request();
+                        colorhold.SetActive(true);
+                        tubos[indexTubos].GetComponent<Tubo>().ponerColor(ran, colorhold); 
                         gris++;
                         totalColores++;
                         print("Gris" + gris);
+                        allColors.Add(colorhold);
                     }
 
                     break;
@@ -122,10 +128,13 @@ public class TuvosManager : MonoBehaviour
 
                     if (nara != 4)
                     {
-                        tubos[indexTubos].GetComponent<Tubo>().ponerColor(ran, Naranja.Request());
+                        colorhold = Naranja.Request();
+                        colorhold.SetActive(true);
+                        tubos[indexTubos].GetComponent<Tubo>().ponerColor(ran, colorhold);
                         nara++;
                         totalColores++;
                         print("naranja" + nara);
+                        allColors.Add(colorhold);
                     }
 
                     break;
@@ -134,10 +143,13 @@ public class TuvosManager : MonoBehaviour
 
                     if(rojo != 4)
                     {
-                        tubos[indexTubos].GetComponent<Tubo>().ponerColor(ran, Rojo.Request());
+                        colorhold = Rojo.Request();
+                        colorhold.SetActive(true);
+                        tubos[indexTubos].GetComponent<Tubo>().ponerColor(ran, colorhold); 
                         rojo++;
                         totalColores++;
                         print("rojo" + rojo) ;
+                        allColors.Add(colorhold);
                     }
 
                     break;
@@ -146,10 +158,13 @@ public class TuvosManager : MonoBehaviour
 
                     if(ver != 4)
                     {
-                        tubos[indexTubos].GetComponent<Tubo>().ponerColor(ran, Verde.Request());
+                        colorhold = Verde.Request();
+                        colorhold.SetActive(true);
+                        tubos[indexTubos].GetComponent<Tubo>().ponerColor(ran, colorhold); 
                         ver++;
                         totalColores++;
                         print("verde" + ver );
+                        allColors.Add(colorhold);
                     }
 
                     break;
@@ -161,6 +176,28 @@ public class TuvosManager : MonoBehaviour
             tub.GetComponent<Tubo>().ponerEnPosicion();
         }
         
+    }
+
+    private void Victoria()
+    {
+        foreach(GameObject tub in tubos)
+        {
+            if(!tub.GetComponent<Tubo>().completo())
+            {
+                return;
+            }
+        }
+        foreach(GameObject tub in tubos)
+        {
+            tub.GetComponent<Tubo>().empezarDeNuevo();
+        }
+        Menu.MenuFinal();
+        totalColores = 0;
+        indexTubos = 0;
+        for(int x = 0; x < allColors.Count; x++)
+        {
+            allColors[x].GetComponentInParent<PoolScript>().Disapear(allColors[x]);
+        }
     }
 
 }
