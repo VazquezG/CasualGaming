@@ -10,6 +10,10 @@ TagManager:
   - Derecha
   - Izquierda
   - Trampolin
+  - Piso
+  - Pieza
+  - ParedIz
+  - ParedDe
   layers:
   - Default
   - TransparentFX
