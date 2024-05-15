@@ -4,31 +4,23 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
-    GameObject piezaActual;
-    float timer, limit;
+    public static Grid instance;
+    public Transform[,] grid;
     void Start()
     {
-        limit = 1;
+        grid = new Transform[10, 16];
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if(timer > limit)
-        {
-
-        }
+       
         
     }
 
-    private void ActualizarPieza(GameObject nuevaPieza)
+    public void addToGrid(int x, int y, Transform child)
     {
-        piezaActual = nuevaPieza;
-    }
-
-    private void DejarPieza()
-    {
-        piezaActual = null; 
+        grid[x, y] = child;
     }
 }
