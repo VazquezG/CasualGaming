@@ -84,7 +84,7 @@ public class BloqueTetris : MonoBehaviour
             int x = Mathf.RoundToInt(t.transform.position.x);
             int y = Mathf.RoundToInt(t.transform.position.y);
 
-            if(y > height)
+            if(y > height-3)
             {
                 print("gameOver");
             }
@@ -130,15 +130,16 @@ public class BloqueTetris : MonoBehaviour
         {
             for(int j = 0; j < width; j++)
             {
-                print(j + " " + y + " " + grid[j,y]);
+                
                 if (grid[j,i] != null)
                 {
                     print("hola");
                     grid[j, y - 1] = grid[j, y];
                     grid[j, y] = null;
                     grid[j, y - 1].transform.position += new Vector3(0, -1, 0);
-                    
+
                 }
+                
                 
             }
         }
