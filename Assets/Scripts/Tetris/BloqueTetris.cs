@@ -38,7 +38,10 @@ public class BloqueTetris : MonoBehaviour
                 perdio();
                 agregarAlGrid();
                 checarLineas();
-                FindObjectOfType<SpaenerTetromino>().nuevaPieza();
+                if (FindObjectOfType<SpaenerTetromino>())
+                {
+                    FindObjectOfType<SpaenerTetromino>().nuevaPieza();
+                }
                 this.enabled = false;
             }
         }
@@ -86,7 +89,8 @@ public class BloqueTetris : MonoBehaviour
 
             if(y > height-3)
             {
-                print("gameOver");
+                FindObjectOfType<manager>().Perdio();
+                break;
             }
         }
     }
@@ -120,7 +124,7 @@ public class BloqueTetris : MonoBehaviour
             Destroy(grid[j,i].gameObject);
             grid[j,i] = null;
         }
-        //rowDown(i);
+        FindObjectOfType<manager>().sumaPuntos(100);
     }
 
 

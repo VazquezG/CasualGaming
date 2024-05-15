@@ -16,13 +16,7 @@ public class SpaenerTetromino : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (!hold.GetComponent<PiezaTetris>().cayendo)
-        //{
-        //    int rand = Random.Range(0, tetriminoPrefabs.Length);
-        //    hold = Instantiate(tetriminoPrefabs[0]);
-        //    hold.transform.position = transform.position;
-
-        //}
+        
     }
 
     public void nuevaPieza()
